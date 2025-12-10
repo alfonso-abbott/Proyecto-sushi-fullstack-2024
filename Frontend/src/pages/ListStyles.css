@@ -1,0 +1,53 @@
+/* Aplica el mismo tipo de letra que el menú */
+body, .formulario, .styled-table {
+  font-family: 'Bungee Tint', sans-serif; /* Ajusta según la fuente de tu menú */
+}
+
+/* Estilos para el estado de pago */
+.estado-pagado {
+  color: green;
+  font-weight: bold;
+}
+
+.estado-pendiente {
+  color: red;
+  font-weight: bold;
+}
+
+/* Tabla estilizada */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 18px;
+  text-align: left;
+}
+
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.styled-table th, .styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}

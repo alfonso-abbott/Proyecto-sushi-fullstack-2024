@@ -1,0 +1,350 @@
+body {
+  font-family: 'Bungee Tint', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url('imagen_fondo_sushi.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1, h2, p {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.fondo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.descripcion, .lado_derecho {
+  width: 100%;
+  max-width: 600px;
+  margin: 1rem 0;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f8f8f8;
+  border-radius: 8px;
+}
+
+.menu, .formulario {
+  margin-top: 2rem;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button.submit-button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+/* Estilo para modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .fondo {
+      flex-direction: row;
+      justify-content: space-around;
+  }
+
+  .descripcion, .lado_derecho {
+      width: 45%;
+  }
+
+  .radio-group {
+      justify-content: space-between;
+  }
+}
+
+/* Estilo para el menú de navegación */
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.navbar-links li {
+  position: relative;
+  margin: 0 1rem;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  padding: 8px 16px;
+  display: block;
+}
+
+/* Estilo para los elementos desplegables */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #555;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block; /* Muestra el contenido desplegable al pasar el ratón */
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #444; /* Cambia el color del botón cuando está activo */
+}
+
+.toggle-button {
+  display: none;
+  font-size: 1.5rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Media Queries para hacer el menú responsivo */
+@media (max-width: 768px) {
+  .navbar-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+  }
+  
+  .navbar-links ul {
+      width: 100%;
+      flex-direction: column;
+  }
+
+  .navbar-links li {
+      text-align: center;
+      width: 100%;
+      margin: 0;
+  }
+
+  .toggle-button {
+      display: block;
+  }
+
+  .navbar-links.show {
+      display: flex;
+  }
+}
+
+/* Asegúrate de que el contenedor del formulario tenga un ancho máximo y sea centrado */
+.formulario {
+  max-width: 600px; /* Ajusta este valor según tus necesidades */
+  margin: 0 auto; /* Centra el formulario horizontalmente */
+  padding: 20px; /* Agrega algo de espacio interno */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Opcional: sombra para dar profundidad */
+  background: #fff; /* Opcional: fondo blanco para el formulario */
+}
+
+/* Asegúrate de que los inputs y el botón ocupen el 100% del ancho del contenedor */
+input[type="text"], input[type="email"], input[type="password"], button {
+  width: 100%;
+  box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho */
+  margin-bottom: 10px; /* Espacio entre elementos */
+  padding: 10px; /* Espacio interno en los inputs */
+  border: 1px solid #ccc; /* Borde ligero */
+  border-radius: 4px; /* Bordes redondeados */
+}
+
+/* Estilos específicos para los radio buttons y etiquetas */
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Espacio entre radio buttons */
+}
+
+.radio-group label {
+  margin-right: 10px; /* Espacio a la derecha de las etiquetas */
+}
+
+.submit-button {
+  background-color: #4CAF50; /* Color de fondo verde */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 15px; /* Espacio interno */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  font-size: 16px; /* Tamaño del texto */
+}
+
+.submit-button:hover {
+  background-color: #45a049; /* Color de fondo más oscuro al pasar el mouse */
+}
+
+/* Estilos de diseño adaptativo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar-links {
+      display: none; /* Oculta los enlaces de navegación en pantallas pequeñas */
+  }
+  
+  .formulario {
+      width: 90%; /* Ancho del formulario en pantallas pequeñas */
+      padding: 10px; /* Menos padding en pantallas pequeñas */
+  }
+}
+
+/* Estilos para el contenedor del formulario de pedidos */
+.formulario-pedido {
+  max-width: 600px; /* Ajusta este valor según tus necesidades */
+  margin: 0 auto; /* Centra el formulario horizontalmente */
+  padding: 20px; /* Espacio interno */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Opcional: sombra para dar profundidad */
+  background: #fff; /* Opcional: fondo blanco para el formulario */
+  text-align: center; /* Centra el texto dentro del formulario */
+}
+
+/* Asegúrate de que los checkboxes estén centrados y no ocupen el 100% del ancho */
+.formulario-pedido label {
+  display: block;
+  margin-bottom: 10px; /* Espacio entre checkboxes */
+}
+
+/* Estilos específicos para los checkboxes */
+.formulario-pedido input[type="checkbox"] {
+  margin-right: 10px; /* Espacio entre el checkbox y el texto */
+}
+
+/* Estilos para el botón de enviar */
+.submit-button {
+  background-color: #4CAF50; /* Color de fondo verde */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 15px 30px; /* Espacio interno ajustado para el botón */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  font-size: 16px; /* Tamaño del texto */
+  margin-top: 20px; /* Espacio arriba del botón */
+}
+
+.submit-button:hover {
+  background-color: #45a049; /* Color de fondo más oscuro al pasar el mouse */
+}
+
+/* Estilos de diseño adaptativo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .formulario-pedido {
+      width: 90%; /* Ancho del formulario en pantallas pequeñas */
+      padding: 10px; /* Menos padding en pantallas pequeñas */
+  }
+}
+
+/* Estilos para los encabezados h2 */
+.menu-sushi h2 {
+  color: white; /* Color blanco para los encabezados h2 */
+}
+
+/* Asegúrate de que el fondo del contenedor sea oscuro para que el texto blanco sea visible 
+.menu-sushi {
+  background-color: white;  /* Ajusta el color de fondo según sea necesario #333;
+  padding: 20px; 
+  border-radius: 8px; 
+}
+*/
+
+/* Añadir un fondo con una imagen de sushi */
+.menu-sushi {
+ background-color: white;  /* Ajusta el color de fondo según sea necesario #333;*/
+  /*background-image: url('foto_menu.png');  Cambia esto a la ruta correcta de tu imagen */
+  background-size: cover; /* Ajusta el tamaño de la imagen */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita la repetición de la imagen */
+  max-width: 90%; /* Ajusta el ancho máximo al 90% del contenedor */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  padding: 20px; /* Agrega algo de relleno si es necesario */
+}
+
